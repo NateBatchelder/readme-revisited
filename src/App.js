@@ -5,7 +5,7 @@ import "./App.css";
 import Header from "./components/Header";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import Display from "./components/Display";
+import Main from "./components/Main";
 import Footer from "./components/Footer";
 
 function App() {
@@ -17,10 +17,10 @@ function App() {
         return <About />;
       case "contact":
         return <Contact />;
-      case "display":
-        return <Display />;
+      case "main":
+        return <Main />;
       default:
-        return <About />;
+        return null;
     }
   };
 
