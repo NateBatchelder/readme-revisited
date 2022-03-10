@@ -1,23 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+import React, { useState } from "react";
+import "./App.css";
+
+import Header from "./components/Header";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Display from "./components/Display";
+import Footer from "./components/Footer";
 
 function App() {
+  const [currentPage, setCurrentPage] = useState("about");
+
+  const sectionDisplay = () => {
+    switch (currentPage) {
+      case "about":
+        return <About />;
+      case "contact":
+        return <Contact />;
+      case "display":
+        return <Display />;
+      default:
+        return <About />;
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>
+        <Header
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        ></Header>
+      </div>
+      <div>
+        <div>{sectionDisplay()}</div>
+      </div>
+      <div>
+        <Footer></Footer>
+      </div>
     </div>
   );
 }
