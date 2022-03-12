@@ -5,7 +5,7 @@ function Nav(props) {
 
     return (
         <nav>
-            <ul className="flex-row">
+            <ul>
                 <li className={currentPage === 'about' ? "mx-2 navActive" : "mx-2"}>
                     <span onClick={() => setCurrentPage('about')}>About</span>
                 </li>
